@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
+  <title>visual</title>
+  <style type="text/css">
+  @font-face {
+    font-family: Murdah;
+    src: url(ButchertheBaker.otf);
+  }
+
+  body{
+    color: #fff;
+    background-color: #000;
+    font-family: 'Slabo 27px', serif;
+    position: relative;
+  }
+
+  svg {
+    overflow: visible;
+    margin-left: 400px;
+  }
+
+  #visual{
+    display: block;
+    margin: 0 auto;
+  }
+
+  h1{
+    /* margin-left: 400px; */
+    text-align: center;
+    font-family: Murdah;
+    letter-spacing: .3em;
+    font-size: 2.4em
+  }
+
+  .circleColor{
+    color: #fff
+  }
+
+  .x-axis line{
+    stroke: #fff;
+    opacity: .2;
+  }
+
+  .xx-axis {
+    color: #fff;
+  }
+
+  .xx-axis path{
+    color: #fff
+  }
+
+  .xx-axis line{
+    stroke: #fff
+  }
+
+  #legenda{
+    position: absolute;
+    right: 2em;
+    bottom: 2em;
+    width: 20em;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: .4em;
+    padding: 1em;
+    border: 1px solid #fff;
+    background-color: #000;
+
+  }
+
+  .block{
+    padding: 1em 0;
+    color: #fff;
+    font-size: .6em;
+    width:100%;
+    text-align:center;
+  }
+
+  .to{
+    background-color: #ff6347;
+  }
+
+  .blo{
+    background-color: #8A0707;
+  }
+
+  .lb{
+    background-color: #ADD8E6;
+  }
+
+  #colors{
+    display: flex;
+  }
+  </style>
+</head>
+<body>
+
+  <h1><span id="bookAmount"></span> Thrillers met het woord BLOED in de titel</h1>
+  <div id="visual"></div>
+  <div id="legenda">
+    <div>
+      <h3>Y-as</h3>
+      <p>Naam van alle thrillers die het woord bloed in de titel bevatten. </p>
+    </div>
+    <div>
+      <h3>X-as</h3>
+      <p>Aantal bladzijdes die de boeken bevat</p>
+    </div>
+    <div>
+      <h3>In de cirkels</h3>
+      <p>Geeft de aantallen karakters weer in de samenvatting van de boeken, de grootte van de cirkel is hier op gebaseerd</p>
+    </div>
+    <div>
+      <h3>Kleuren</h3>
+      <p>Geeft weer of het zoekwoord(Geeft ook het thema weer) in de samenvatting staat van het verhaal</p>
+      <div id="colors">
+      <div class="block to">Moord</div>
+      <div class="block lb ">Ontvoering</div>
+      <div class="block blo">Normaal boek</div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <script src="https://d3js.org/d3.v5.js"></script>
+  <script src="d3.js"></script>
+</body>
+</html>

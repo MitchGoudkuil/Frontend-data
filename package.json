@@ -1,0 +1,34 @@
+{
+  "name": "fp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node_modules/.bin/nodemon index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MitchGoudkuil/functional-programming.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MitchGoudkuil/functional-programming/issues"
+  },
+  "homepage": "https://github.com/MitchGoudkuil/functional-programming#readme",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "chalk": "^2.4.1",
+    "d3": "^5.7.0",
+    "dotenv": "^6.1.0",
+    "express": "^4.16.4",
+    "helpers": "0.0.6",
+    "jsonpath": "^1.0.0",
+    "query-string": "^6.2.0",
+    "xml-to-json-promise": "0.0.3",
+    "xml2js": "^0.4.19"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.5"
+  }
+}
