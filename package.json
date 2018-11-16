@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node_modules/.bin/nodemon index"
+    "start": "node_modules/.bin/nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -29,6 +29,6 @@
     "xml2js": "^0.4.19"
   },
   "devDependencies": {
-    "nodemon": "^1.18.5"
+    "nodemon": "^1.18.6"
   }
 }
