@@ -7,6 +7,41 @@ var margin = {top: 20, right: 20, bottom: 30, left: 50},
     width = 960 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 
+
+const mickeyImg = document.querySelector("#mickey-image")
+const donaldImg = document.querySelector("#donald-image")
+const peterImg = document.querySelector("#peter-image")
+const winnieImg = document.querySelector("#winnie-image")
+const frozenImg = document.querySelector("#frozen-image")
+
+
+//checkboxes
+
+const mickeyCheck = document.querySelector("#mickey").addEventListener("change", function() {
+    mickeyGroup.classList.toggle("noshow");
+    mickeyImg.classList.toggle("noshowimg");
+});
+const donaldCheck = document.querySelector("#donald").addEventListener("change", function() {
+    donaldGroup.classList.toggle("noshow")
+    donaldImg.classList.toggle("noshowimg");
+});
+const peterCheck = document.querySelector("#peter").addEventListener("change", function() {
+    peterGroup.classList.toggle("noshow")
+    peterImg.classList.toggle("noshowimg");
+});
+const winnieCheck = document.querySelector("#winnie").addEventListener("change", function() {
+    winnieGroup.classList.toggle("noshow")
+    winnieImg.classList.toggle("noshowimg");
+});
+const frozenCheck = document.querySelector("#frozen").addEventListener("change", function() {
+    frozenGroup.classList.toggle("noshow")
+    frozenImg.classList.toggle("noshowimg");
+});
+
+
+
+
+
 const newData = data.filter(book => {
   possibleAnswers.forEach(name => {
     if(book.bookTitle.toLowerCase().includes(name)) {
@@ -74,7 +109,8 @@ svg.append("g")
     .attr("transform", "translate(0," + height + ")")
     .call(d3.axisBottom(x)
     .ticks(uniqueYears.length)
-    .tickFormat(d3.format('y')))
+    .tickFormat(d3.format('y'))
+    )
 
 // Add the Y Axis
 svg.append("g")
@@ -129,6 +165,15 @@ function update(data) {
     });
 
 }
+
+
+mickeyGroup = document.querySelector(".mickey");
+donaldGroup = document.querySelector(".donald")
+winnieGroup = document.querySelector(".winnie")
+peterGroup = document.querySelector(".peter")
+frozenGroup = document.querySelector(".frozen")
+
+
 
 
 
