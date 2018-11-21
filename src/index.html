@@ -9,25 +9,78 @@
   <title>Frontend-data</title>
   <style type="text/css">
     body{
-      background-image: url("img/better-pattern.png");
+      background-image: url("img/pattern.png");
       background-position: left;
       margin: 0 auto;
       width: 100vw;
       height: 100vh;
     }
-    .line {
-  fill: none;
-  stroke: steelblue;
+
+    div.tooltip {
+    position: absolute;
+    text-align: center;
+    width: 60px;
+    color: #fff;
+    padding: 5px;
+    font: 12px sans-serif;
+    background: #222222;
+    border: 0px;
+    border-radius: 100px;
+    pointer-events: none;
+}
+
+.item{
+  opacity: 1
+}
+
+.peter .item{
+  fill: #CFD55D;
   stroke-width: 2px;
 }
+
+.donald .item{
+  fill: #3995F7;
+  stroke-width: 2px;
+}
+
+.mickey .item{
+  fill: #E53823;
+  stroke-width: 2px;
+}
+
+.frozen .item{
+  fill: #A5F2F3;
+  stroke-width: 2px;
+}
+
+.winnie .item{
+  fill: #FFC500;
+  stroke-width: 2px;
+}
+
+#checkboxes{
+  margin-left: 1em
+}
+
   </style>
 </head>
 <body>
 
 
-  <div id="visual"></div>
+  <div id="visual">
+
+  </div>
+
+  <div id="checkboxes">
+     <input class="check-b" type="checkbox" id="donald"><label for="donald">Donald</label>
+     <input class="check-b" type="checkbox" id="mickey"><label for="mickey">Mickey</label>
+     <input class="check-b" type="checkbox" id="winnie"><label for="winnie">Winnie</label>
+     <input class="check-b" type="checkbox" id="frozen"><label for="frozen">Frozen</label>
+     <input class="check-b" type="checkbox" id="peter"><label for="peter">Peter</label>
+  </div>
+
 
   <script src="https://d3js.org/d3.v5.js"></script>
-  <script src="d3-.js"></script>
+  <script src="d3.js"></script>
 </body>
 </html>
