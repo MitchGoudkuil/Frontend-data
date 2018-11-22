@@ -4,18 +4,36 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-
   <title>Frontend-data</title>
   <style type="text/css">
     body{
       background-image: url("img/pattern.png");
-      background-position: left;
       margin: 0 auto;
       width: 100vw;
       height: 100vh;
+    }
+
+    .main-container{
       display: grid;
-      grid-template-columns: 4fr 2fr
+      grid-template-columns: 4fr 2fr;
+    }
+
+    .top-container{
+      display: grid;
+      grid-template-columns: 1fr 3fr 2fr;
+    }
+
+    .logo{
+      padding: 1em;
+    }
+
+    .logo img{
+      width: 200px;
+    }
+
+    .firstside{
+      padding-left: 5em;
+      padding-top: 1em;
     }
 
     div.tooltip {
@@ -29,6 +47,24 @@
     border: 0px;
     border-radius: 100px;
     pointer-events: none;
+}
+
+.title{
+  text-align: center;
+}
+
+.title-block{
+  width: 20em;
+  display: block;
+  margin: 0 auto;
+  background-color: #111;
+  text-align: center;
+}
+
+.title h1{
+  color: #ffffff;
+  padding: 1em;
+
 }
 
 .item{
@@ -70,8 +106,9 @@
 }
 
 .noshow{
-  opacity: 0
+  opacity: 0;
 }
+
 .noshowimg{
   display: none
 }
@@ -94,40 +131,61 @@
 label{
   margin-right: 1em
 }
+.selectYears {
+  position: absolute;
+  top: 100px;
+  right: 0px;
+}
 
   </style>
+
 </head>
 <body>
 
-  <div class="2sides">
-    <div id="heads">
-      <img class="head" id="mickey-image" src="./img/mickey.png" alt="">
-      <img class="head" id="donald-image" src="./img/donald.png" alt="">
-      <img class="head" id="winnie-image" src="./img/winnie.png" alt="">
-      <img class="head" id="peter-image" src="./img/peter.png" alt="">
-      <img class="head" id="frozen-image" src="./img/frozen.png" alt="">
+  <div class="top-container">
+    <div class="logo">
+      <img src="./img/disneylogo.png" alt="">
     </div>
-
-    <div id="visual">
-    </div>
-
-    <div id="checkboxes">
-        <div>
-          <label for="mickey"><input class="check-b" type="checkbox" id="mickey" checked>Mickey Mouse</label>
-         <label for="donald"><input class="check-b" type="checkbox" id="donald" checked>Donald Duck</label>
-       </div>
-       <div>
-         <label for="winnie"><input class="check-b" type="checkbox" id="winnie" checked>Winnie the Pooh</label>
-         <label for="peter"><input class="check-b" type="checkbox" id="peter" checked>Peter Pan</label>
-       </div>
-       <div>
-         <label for="frozen"><input class="check-b" type="checkbox" id="frozen" checked>Frozen</label>
-
-       </div>
+    <div class="title">
+      <div class="title-block">
+        <h1>Disney in de Oba</h1>
+      </div>
     </div>
   </div>
 
-    <div class="2sides"></div>
+  <div class="main-container">
+    <div class="firstside">
+      <div id="heads">
+        <img class="head" id="mickey-image" src="./img/mickey.png" alt="">
+        <img class="head" id="donald-image" src="./img/donald.png" alt="">
+        <img class="head" id="winnie-image" src="./img/winnie.png" alt="">
+        <img class="head" id="peter-image" src="./img/peter.png" alt="">
+        <img class="head" id="frozen-image" src="./img/frozen.png" alt="">
+      </div>
+
+      <div id="visual">
+      </div>
+
+      <div id="checkboxes">
+          <div>
+            <label for="mickey"><input class="check-b" type="checkbox" id="mickey" checked>Mickey Mouse</label>
+           <label for="donald"><input class="check-b" type="checkbox" id="donald" checked>Donald Duck</label>
+         </div>
+         <div>
+           <label for="winnie"><input class="check-b" type="checkbox" id="winnie" checked>Winnie the Pooh</label>
+           <label for="peter"><input class="check-b" type="checkbox" id="peter" checked>Peter Pan</label>
+         </div>
+         <div>
+           <label for="frozen"><input class="check-b" type="checkbox" id="frozen" checked>Frozen</label>
+         </div>
+      </div>
+    </div>
+
+      <div class="secondside"></div>
+
+
+  </div>
+
 
 
   <script src="https://d3js.org/d3.v5.js"></script>

@@ -1,12 +1,13 @@
 
 d3.json('newdata.json').then(data => {
-
+// console.log(data);
 const possibleAnswers = ['mickey', 'donald', 'peter', 'winnie', 'frozen']
 
 var margin = {top: 20, right: 20, bottom: 30, left: 50},
     width = 960 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 
+let currentAxis = 'years'
 
 const mickeyImg = document.querySelector("#mickey-image")
 const donaldImg = document.querySelector("#donald-image")
@@ -39,9 +40,6 @@ const frozenCheck = document.querySelector("#frozen").addEventListener("change",
 });
 
 
-
-
-
 const newData = data.filter(book => {
   possibleAnswers.forEach(name => {
     if(book.bookTitle.toLowerCase().includes(name)) {
@@ -50,11 +48,26 @@ const newData = data.filter(book => {
   })
   if (book.disneyCharacter) {
     return book
+
   }
 })
 
+
 // ophalen van namen van characters
 const organizedByCharacter = d3.nest().key(function(book) { return book.disneyCharacter }).entries(newData);
+//
+// const yearData = organizedByCharacter.map(character => {
+//   const byYear = d3.nest()
+//     .key(function(book) {
+//       return book.itemYear
+//     })
+//     .entries(character.values)
+//   return {
+//     name: character.key,
+//     years: byYear,
+//   }
+// })
+
 
 const goodData = organizedByCharacter.map(character => {
   const byYear = d3.nest()
@@ -68,7 +81,6 @@ const goodData = organizedByCharacter.map(character => {
   }
 })
 
-console.log(goodData);
 
 let yearCount = goodData.map(d => {
   return d.years.length
@@ -104,27 +116,39 @@ var y = d3.scaleLinear().range([height, 0]);
 x.domain(d3.extent(uniqueYears, function(d) { return d; }))
 y.domain([0, maxYearCount])
 
- // Add the x Axis
-svg.append("g")
-    .attr("transform", "translate(0," + height + ")")
-    .call(d3.axisBottom(x)
-    .ticks(uniqueYears.length)
-    .tickFormat(d3.format('y'))
-    )
+update(goodData)
 
-// Add the Y Axis
-svg.append("g")
-    .call(d3.axisLeft(y))
+d3.select('#visual')
+.append('div')
+.attr('class', 'selectYears')
+.append('select')
+  .attr('class','select')
+  .on('change',onchange)
 
-    update(goodData)
+d3.select('.select')
+      .selectAll('option')
+    	.data(uniqueYears)
+      .enter()
+    	.append('option')
+    		.text(d => d)
 
+function onchange() {
+  currentAxis = 'names'
 
+  selectValue = d3.select('select').property('value')
+
+  x = d3.scalePoint().domain(goodData.map(d => d.name)).range([0, width])
+  y = d3.scaleLinear().domain([0, 500]).range([height, 0])
+  update(goodData, selectValue)
+}
 // de update functie
-function update(data) {
+function update(data, currentYear) {
 
     const groups = svg
     .selectAll('.group')
     .data(data)
+
+    groups.exit().remove()
 
     groups
     .enter()
@@ -164,6 +188,20 @@ function update(data) {
         .style("opacity", 0);
     });
 
+  d3.select('.xAxis').remove()
+    // Add the x Axis
+   svg.append("g")
+      .attr('class', 'xAxis')
+       .attr("transform", "translate(0," + height + ")")
+       .call(d3.axisBottom(x)
+       .ticks(currentAxis === 'years' ? uniqueYears.length : goodData.length)
+       // .tickFormat(d3.format('y'))
+       )
+      d3.select('.yAxis').remove()
+       // Add the Y Axis
+       svg.append("g")
+         .attr('class', 'yAxis')
+          .call(d3.axisLeft(y))
 }
 
 
