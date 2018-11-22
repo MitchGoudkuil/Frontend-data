@@ -100,13 +100,17 @@
   stroke-width: 2px;
 }
 
+.current-year{
+  text-align: right
+}
+
 #checkboxes{
   margin-left: 1em;
   display: flex
 }
 
 .noshow{
-  opacity: 0;
+  opacity: 0
 }
 
 .noshowimg{
@@ -132,9 +136,29 @@ label{
   margin-right: 1em
 }
 .selectYears {
-  position: absolute;
-  top: 100px;
-  right: 0px;
+float: right;
+}
+
+.tickies{
+  background-color: green;
+}
+#headsandyear{
+  display: grid;
+  grid-template-columns: 2fr 1fr
+}
+
+#year-item{
+  padding: .5em;
+  width: 100%;
+  display: block;
+  color: #fff;
+  background-color: #111;
+  text-align: center ;
+  float: right;
+}
+
+#current-year{
+  position: relative;
 }
 
   </style>
@@ -155,13 +179,20 @@ label{
 
   <div class="main-container">
     <div class="firstside">
-      <div id="heads">
-        <img class="head" id="mickey-image" src="./img/mickey.png" alt="">
-        <img class="head" id="donald-image" src="./img/donald.png" alt="">
-        <img class="head" id="winnie-image" src="./img/winnie.png" alt="">
-        <img class="head" id="peter-image" src="./img/peter.png" alt="">
-        <img class="head" id="frozen-image" src="./img/frozen.png" alt="">
-      </div>
+        <div id="headsandyear">
+          <div id="heads">
+            <img class="head" id="mickey-image" src="./img/mickey.png" alt="">
+            <img class="head" id="donald-image" src="./img/donald.png" alt="">
+            <img class="head" id="winnie-image" src="./img/winnie.png" alt="">
+            <img class="head" id="peter-image" src="./img/peter.png" alt="">
+            <img class="head" id="frozen-image" src="./img/frozen.png" alt="">
+          </div>
+
+          <div id="current-year">
+            <h2 id="year-item">1955 - Huidig</h2>
+            <div id="selectbox"></div>
+          </div>
+        </div>
 
       <div id="visual">
       </div>
