@@ -52,9 +52,9 @@ I wanted to do something completely different in the terms of data so I decided 
 
 I made a design in sketch of how I wanted the visual to look like which is shown beneath.
 
-img
-
-![mand](https://raw.githubusercontent.com/MitchGoudkuil/Frontend-data/master/visual.png)
+![mand](https://raw.githubusercontent.com/MitchGoudkuil/Frontend-data/master/first.png)
+![mand](https://raw.githubusercontent.com/MitchGoudkuil/Frontend-data/master/second.png)
+![mand](https://raw.githubusercontent.com/MitchGoudkuil/Frontend-data/master/selected.png)
 
 With this design I was able to find out which data was needed.
 
@@ -184,6 +184,7 @@ I started of by making a line chart like I designed in sketch. I soon found out 
 * [X] Import a shit load of data to the json file instead of just 20 books
 * [X] Get the tooltips working which shows the amount of books.
 * [X] Add transitions to the circles and be able to turn characters on and off.
+* [X] Show and remove characters.
 * [X] Be able to plot books filtered by a specific year if that year is selected.
 * [X] Get used to d3.nest() function
 * [ ] Make the X axis show the names of the characters.
