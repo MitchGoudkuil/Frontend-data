@@ -124,6 +124,7 @@ d3.json("newdata.json")
 
     update(goodData);
 
+//Make selection
     d3.select("#selectbox")
       .append("div")
       .attr("class", "selectYears")
@@ -148,11 +149,9 @@ d3.json("newdata.json")
       const year = d3.select("select").property("value");
       yearTitle.textContent = year;
 
-      console.log('goodData: ' ,goodData);
-
       scaleX = d3
-        .scalePoint()
-        .domain(goodData.map(d => d.name))
+        .scaleOrdinal()
+        .domain(["mickey", "donald", "peter", "winnie", "frozen"])
         .range([0, width]);
       scaleY = d3
         .scaleLinear()
@@ -174,8 +173,6 @@ d3.json("newdata.json")
               .filter(cyear => cyear.key == year)
           }))
       }
-      console.log(data)
-
 
       const groups = svg.selectAll(".group").data(data);
       groups.exit().remove();
@@ -192,7 +189,6 @@ d3.json("newdata.json")
         .data(d => d.years.map(book => {
             if (currentAxis === "years") {
               return book;
-              console.log(book);
             } else {
               return book.values[0];
             }
@@ -230,19 +226,33 @@ d3.json("newdata.json")
         .delay(function(d, i) { return i*70; })
         .attr("r", 10)
 
+
       circles
         .attr("cx", function(d) {
-          console.log(d)
           return scaleX(currentAxis === "years" ? d.key : d.disneyCharacter);
+
+
         })
         .attr("cy", function(d) {
           d.pageNumber = d.pageNumber ? d.pageNumber : 0
           return scaleY(currentAxis === "years" ? d.values.length : d.pageNumber);
         })
+        .on("mouseover", function(d) {
+          tooltipDiv
+            .transition()
+            .duration(200)
+            .style("opacity", 0.9);
+          tooltipDiv
+            .html(d.pageNumber + " bladzijdes")
+            .style("left", d3.event.pageX + "px")
+            .style("top", d3.event.pageY - 10 + "px");
+        })
         .attr("r", 0)
         .transition()
         .delay(function(d, i) { return i*70; })
-        .attr("r", 10)
+        .attr("r", function(d){
+          return d.pageNumber / 7
+        })
 
       circles.exit()
         .remove()
@@ -257,7 +267,7 @@ d3.json("newdata.json")
           d3
             .axisBottom(scaleX)
             .ticks(
-              currentAxis === "years" ? uniqueYears.length : goodData.length
+              currentAxis === "years" ? uniqueYears.length : possibleAnswers.length
             )
           .tickFormat(d3.format('y'))
 
@@ -284,5 +294,5 @@ d3.json("newdata.json")
     frozenGroup = document.querySelector(".frozen");
   })
   .catch(err => {
-    // console.log(err);
+    console.log(err);
   });
