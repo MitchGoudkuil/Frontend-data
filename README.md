@@ -2,7 +2,7 @@
 
 #### Description
 A data visualisation in which the most famous disney characters present the amount of bookt they have. Switch Characters on and off and have a look at the data if you zoom in on a specific year.
-The link to the interactive project can be found [link](here)
+The link to the interactive project can be found [here](http://mitchgoudkuil.nl/school/frontend-data/)
 
 ![image of the prototype](https://raw.githubusercontent.com/MitchGoudkuil/Frontend-data/master/visual.png)
 
